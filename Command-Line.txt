@@ -1,0 +1,174 @@
+Perintah Dasar Linux 
+
+mkdir - membuat direktori
+Penggunaan: mkdir [OPTION] DIRECTORY
+Contoh: mkdir lhn
+
+ls - list daftar direktori
+Penggunaan: ls [OPTION] [FILE]
+Contoh: ls, ls l, ls lhn
+
+cd - mengubah direktori
+Penggunaan: cd [DIRECTORY]
+Contoh: cd lhn
+
+pwd - cetak nama direktori saat ini
+Penggunaan: pwd
+
+vim Vi Improved, a programmers text editor
+Penggunaan: vim [OPTION] [file]
+Contoh: vim lhn.txt
+
+cp - copy file dan direktori
+Penggunaan: cp [OPTION] SOURCE DEST
+Contoh: cp sample.txt sample_copy.txt
+cp sample_copy.txt target_dir
+
+mv - memindah (mengganti nama) file
+Penggunaan: mv [OPTION] SOURCE DEST
+Contoh: mv source.txt target_dir
+mv old.txt new.txt
+
+rm - menghapus file atau direktori
+Penggunaan: rm [OPTION] FILE
+Contoh: rm file1.txt , rm rf some_dir
+
+find - mencari
+Penggunaan: find [OPTION] [path] [pattern]
+Contoh: find file1.txt, find name file1.txt
+history prints recently used commands
+Penggunaan: history
+
+cat - menyatukan file dan menampilkan dalam output standar
+Penggunaan: cat [OPTION] [FILE]
+Contoh: cat file1.txt file2.txt
+cat n file1.txt
+
+echo -  menampilkan baris teks
+Penggunaan: echo [OPTION] [string]
+Contoh: echo I love India
+echo $HOME
+
+grep - menampilkan garis yang sesuai pola
+Penggunaan: grep [OPTION] PATTERN [FILE]
+Contoh: grep i apple sample.txt
+
+wc - menampilkan jumlah baris, kata dan byte sebuah file
+Penggunaan: wc [OPTION] [FILE]
+Contoh: wc file1.txt
+wc L file1.txt
+
+sort - menyortir
+Penggunaan: sort [OPTION] [FILE]
+Contoh: sort file1.txt
+sort r file1.txt
+
+tar - mengarsipkan file
+Penggunaan: tar [OPTION] DEST SOURCE
+Contoh: tar cvf /home/archive.tar /home/original
+tar xvf /home/archive.tar
+
+kill - mematikan suatu proses
+Penggunaan: kill [OPTION] pid
+Contoh: kill 9 2275
+
+ps - menampilkan snapshot proses saat ini
+Penggunaan: ps [OPTION]
+Contoh: ps, ps el
+
+who - mengetahui siapa yang login
+Penggunaan: who [OPTION]
+Contoh: who , who b , who q
+
+passwd - update password
+Penggunaan: passwd [OPTION]
+Contoh: passwd
+
+su - mengganti USER ID atau menjadi super user
+Penggunaan: su [OPTION] [LOGIN]
+Contoh: su remo, su
+
+chown - mengganti pemilik file atau grup
+Penggunaan: chown [OPTION] OWNER[:[GROUP]] FILE
+Contoh: chown remo myfile.txt
+
+chmod - mengganti file permission
+Penggunaan: chmod [OPTION] [MODE] [FILE]
+Contoh: chmod 744 calculate.sh
+
+zip - mengarsip file
+Penggunaan: zip [OPTION] DEST SOURSE
+Contoh: zip original.zip original
+
+unzip - membuka file yang diarsip ZIP
+Penggunaan: unzip filename
+Contoh: unzip original.zi
+
+ssh - SSH client (remote login program)
+ssh is a program for logging into a remote machine and for executing commands on a remote machine
+Penggunaan: ssh [options] [user]@hostname
+Contoh: ssh X guest@10.105.11.20
+
+scp - secure copy (remote file copy program)
+scp copies files between hosts on a network
+Penggunaan: scp [options] [[user]@host1:file1] [[user]@host2:file2]
+Contoh: scp file1.txt guest@10.105.11.20:~/Desktop/
+
+fdisk - manipulator partisi
+Contoh: sudo fdisk l
+
+mount - mount a file system
+Penggunaan: mount t type device dir
+Contoh: mount /dev/sda5 /media/target
+
+umount - unmount file systems
+Penggunaan: umount [OPTIONS] dir | device
+Contoh: umount /media/target
+
+du - melihat kapasitas storage
+Penggunaan: du [OPTION] [FILE]
+Contoh: du
+
+df - melihat jumlah penggunaan storage
+Penggunaan: df [OPTION] [FILE]
+Contoh: df
+
+quota - melihat penggunaan dan batas disk
+Penggunaan: quota [OPTION]
+Contoh: quota v
+
+reboot - restart system
+Penggunaan: reboot [OPTION]
+Contoh: reboot
+
+poweroff - mematikan sistem
+Penggunaan: poweroff [OPTION]
+Contoh: poweroff
+
+kate - KDE Editor
+Penggunaan: kate [options][file(s)]
+Contoh: kate file1.txt file2.txt
+
+gedit - Text editor untuk membuat dan edit file
+Penggunaan: gedit [OPTION] [FILE]
+Contoh: gedit
+
+bg - membuat proses yang di depan berjalan di belakang
+Penggunaan: type ctrl+z and then bg
+
+fg - membuat proses background berjalan di depan
+Penggunaan: fg [jobid]
+
+jobs - menampilkan ID dan nama proses
+Penggunaan: jobs
+
+sed - stream editor untuk menyortir dan transformasi teks
+Penggunaan: sed [OPTION] [input file]
+Contoh: sed s/love/hate/g loveletter.txt
+
+awk - scan pola dan pengolahan bahasa
+Contoh: awk F: { print $1 } sample_awk.txt
+
+locate - mencari
+Penggunaan: locate [OPTION] FILE
+Contoh: locate file1.txt

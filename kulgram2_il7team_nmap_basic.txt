@@ -1,0 +1,94 @@
+Pemateri : Adeputra Armadhani
+Date : sabtu, 09 juni
+Time : 22:00 wib s/d 22:30
+Agenda : Kulgram #2
+------Materi Kulgram--------
+0========::nmap::==========0
+#Scan a single Target
+#Scan Multiple Targets
+#Scan a range of IP Addresses
+#Scan an Entire subnet
+#Scan a list of targets
+	===================
+nmap (network mapper) = tool scanning port yang sering digunakan untuk tahap awal pentest, dan tool ini dibuat oleh Fyodor alias gordon lyon.
+nmap bisa melihat informasi berguna seperti ngedeteksi OS, melihat service yang digunakan, menemukan host, dll.
+
+nmap secara singkat :
+ 	 host discovery 						: menemukan host 
+	 Port discovery						: menemukan port
+    Service discovery					: menemukan service yang digunakan
+    Operating system version detection	: deteksi versi sistem operasi
+    Hardware (MAC) address detection	: alamat physical (MAC Address) 
+    Service version detection				: deteksi versi service 
+    Vulnerability / exploit detection, using Nmap scripts (NSE) : deteksi kerentanan/exploitasi, menggunakan script nmap (NSE).
+
+ada banyak options yang disediakan oleh nmap, tapi kita hanya menggunakan sedikit lebih umum yang paling banyak digunakan.
+
+===============================================
+####note: nmap -sP 192.168.56.0/24#############
+===============================================
+---start---
+#Scan a single target,
+contoh : ~$ nmap 192.168.1.1
+contoh : ~$ nmap facebook.com -v -O -sV
+-v = scan mode verbose
+-O = ngedeteksi OS
+-sV = ngedeteksi version service yang digunakan.
+
+target bisa berupa ip address dan domain name.
+nama komputer juga bisa, tapi harus 1 jaringan.
+contoh ip address : 192.168.1.1
+contoh host name (nama komputer) : Adeputra
+contoh domain name : facebook.com
+untuk check hostname di linux : ~$ hostname -f
+untuk check hostname di windows :  \ ipconfig /all
+
+nmap default nya scan 1000 port tcp/ip yang paling umum digunakan, contoh : 21, 22, 23, 80, 443, dll. 
+default nya dia menscan dari port 1-1024.
+lihat ini jika ingin melihat nmap-services: https://bit.ly/2JmyqN8
+
+#Scan Multiple Targets
+nmap bisa juga scan banyak host pada saat bersamaa, mudahnya kita tinggal memisahkan kedua host menggunakan spasi. contoh : ~$ nmap 192.168.1.1 192.168.1.2 192.168.1.3
+sedikit tips : kita juga bisa menggunakan command line seperti ini : ~$ nmap 192.168.1.1,2,3 -A
+
+#Scan a range of IP Addresses
+~$ nmap 192.168.1.1-100
+
+dalam contoh ini dia akan menScan dari ip 192.168.1.1, 192.168.1.2, 192.168.1.3 ... sampai 192.168.1.100
+
+dalam hal ini kita juga bisa scan beberapa jaringan/subnet, misalnya ~$ nmap 192.168.1-100.* <- ini akan menScan jaringan kelas C 192.168.1. * sampai 192.168.100.*
+
+
+#Scan an Entire subnet
+nmap juga bisa scan seluruh subnet menggunakan notasi CIDR.
+CIDR merupakan membagi alamat IP jaringan ke dalam kelas-kelas a, b, dan c. contoh kelas a adalah /8 sampai dengan /15, kelas b adalah /16 sampai dengan /23. dan seterusnya.  
+talbe cidr = https://bit.ly/2Hx8cSj
+
+perintah nya seperti ini : nmap [network/cidr]
+~$ nmap 192.168.1.0/24
+~$ nmap 192.168.56.0/24
+
+contoh diatas mencoba scan seluruh jaringan 192.168.1.0 & 192.168.56.0 
+
+#Scan a list of targets
+jika kita memiliki sejumlah scaning yang banyak bahkan sampai pulusan, kita bisa memasukkan alamat ip (atau nama host) kedalam file .txt dan menggunakan file itu sebagai inputan nmap pada baris perintah.
+
+sekarang mari kita buat sebuah file .txt dan kita mengisikan ip yang kita masukan.
+~$ cat list.txt
+192.168.1.1
+192.168.56.1
+192.168.56.102
+
+file .txt diatas berisikan list host yang akan discan. setiap entri dalam file .txt harus dipisahkan oleh spasi, tab, atau baris baru. parameter -iL digunakan untuk menginstrusikan nmap untuk mengekstrak list target dari file .txt.
+~$ nmap -iL <filename>.txt
+~$ nmap -il /home/path/<filename>.txt
+
+bayangkan kita memiliki 100 lebih list target, dan kita tidak cukup waktu untuk memeriksa keseluruhan output tersebut, maka kita bisa menambahkan sintax " > <filename>.txt " setelah sintax file list.txt . 
+contoh : ~$ nmap -O -A -iL list.txt > output.txt  
+
+ebook : https://bit.ly/2kWXbkd
+ini saya kasih ebook nmap handbook yang saya dapatkan dalam archive parrotsec.org .
+
+dan kulgram selanjutnya, kita akan terus lanjut ke bab selanjutnya. dan gk ngulangi ke bab sebelumnya. dan silahkan dipelajari sampai akhir bab 3, dan akan kita lanjutkan kulgram selanjutnya di tingkat advance di bab 4. sesuai ebook tersebut.
+
+sedikit refrensi untuk kita pelajari : https://highon.coffee/blog/nmap-cheat-sheet/
